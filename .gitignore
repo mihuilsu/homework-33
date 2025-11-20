@@ -6,8 +6,7 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
-# Папка dist - НЕ ігноруємо, бо GitHub Actions комітить її в main
-# dist/
+# docs/
 
 # IDE та редактори
 .vscode/

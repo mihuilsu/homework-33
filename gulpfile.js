@@ -10,21 +10,21 @@ const del = require('del');
 const paths = {
   styles: {
     src: 'src/scss/**/*.scss',
-    dest: 'dist/css/'
+    dest: 'docs/css/'
   },
   html: {
     src: 'src/*.html',
-    dest: 'dist/'
+    dest: 'docs/'
   },
   js: {
     src: 'src/js/**/*.js',
-    dest: 'dist/js/'
+    dest: 'docs/js/'
   }
 };
 
-// Очищення папки dist
+// Очищення папки docs
 function clean() {
-  return del(['dist']);
+  return del(['docs']);
 }
 
 // Компіляція SCSS в CSS з автопрефіксером
@@ -73,7 +73,7 @@ function scripts() {
 function serve() {
   browserSync.init({
     server: {
-      baseDir: './dist'
+      baseDir: './docs'
     },
     port: 3000,
     notify: false
