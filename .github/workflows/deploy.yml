@@ -1,0 +1,45 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+# Дозволяє GitHub Pages читати з main
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Клонування репозиторію
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2. Встановлення Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # 3. Встановлення залежностей
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Збірка проєкту
+      - name: Build project
+        run: npm run build
+
+      # 5. Комітимо dist назад в main
+      - name: Commit dist to main
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add dist -f
+          git diff --staged --quiet || git commit -m "🤖 Auto-build: Update dist folder"
+          git push

@@ -1,0 +1,143 @@
+@use 'sass:color';
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Картки
+.card {
+  background: white;
+  @include border-radius($border-radius);
+  @include box-shadow($box-shadow-medium);
+  @include transition(transform);
+  padding: $spacing-large;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-5px);
+    @include box-shadow($box-shadow-large);
+  }
+
+  &__icon {
+    font-size: 3rem;
+    margin-bottom: $spacing-medium;
+    color: $primary-color;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    color: $dark-color;
+    margin-bottom: $spacing-small;
+  }
+
+  &__description {
+    color: color.adjust($text-color, $lightness: 20%);
+    line-height: 1.6;
+  }
+}
+
+// Кнопки
+.btn {
+  @include button($primary-color);
+
+  &--secondary {
+    @include button($secondary-color);
+  }
+
+  &--accent {
+    @include button($accent-color);
+  }
+
+  &--large {
+    padding: $spacing-medium $spacing-large;
+    font-size: $font-size-large;
+  }
+
+  &--small {
+    padding: calc($spacing-small / 2) $spacing-small;
+    font-size: $font-size-small;
+  }
+}
+
+// Бейджі
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  @include border-radius($border-radius-large);
+  font-size: $font-size-small;
+  font-weight: bold;
+  color: white;
+
+  &--primary {
+    background-color: $primary-color;
+  }
+
+  &--secondary {
+    background-color: $secondary-color;
+  }
+
+  &--accent {
+    background-color: $accent-color;
+  }
+}
+
+// Алерти (оновлений з color.adjust)
+.alert {
+  padding: $spacing-medium;
+  @include border-radius($border-radius-small);
+  margin-bottom: $spacing-medium;
+  border-left: 4px solid;
+
+  &--info {
+    background-color: color.adjust($primary-color, $lightness: 35%);
+    border-color: $primary-color;
+    color: color.adjust($primary-color, $lightness: -20%);
+  }
+
+  &--success {
+    background-color: color.adjust($secondary-color, $lightness: 35%);
+    border-color: $secondary-color;
+    color: color.adjust($secondary-color, $lightness: -20%);
+  }
+
+  &--warning {
+    background-color: color.adjust($accent-color, $lightness: 35%);
+    border-color: $accent-color;
+    color: color.adjust($accent-color, $lightness: -20%);
+  }
+}
+
+// Прогрес-бар
+.progress {
+  height: 20px;
+  background-color: $light-color;
+  @include border-radius($border-radius-small);
+  overflow: hidden;
+  @include box-shadow(inset 0 1px 2px rgba(0, 0, 0, 0.1));
+
+  &__bar {
+    height: 100%;
+    @include gradient-bg($primary-color, color.adjust($primary-color, $lightness: -10%));
+    @include transition(width, 3s);
+  }
+}
+
+// Навігація
+.nav {
+  display: flex;
+  gap: $spacing-medium;
+  list-style: none;
+
+  &__item {
+    a {
+      color: $text-color;
+      text-decoration: none;
+      padding: $spacing-small $spacing-medium;
+      @include border-radius($border-radius-small);
+      @include transition(background-color);
+
+      &:hover {
+        background-color: $light-color;
+        color: $primary-color;
+      }
+    }
+  }
+}

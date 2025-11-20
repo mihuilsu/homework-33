@@ -1,0 +1,28 @@
+# Залежності
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Папка dist - НЕ ігноруємо, бо GitHub Actions комітить її в main
+# dist/
+
+# IDE та редактори
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Тимчасові файли
+*.log
+*.tmp
+.cache/
+.temp/
+
+# Системні файли
+Thumbs.db
+Desktop.ini

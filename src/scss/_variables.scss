@@ -1,0 +1,39 @@
+// Кольори
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+$accent-color: #e74c3c;
+$dark-color: #2c3e50;
+$light-color: #ecf0f1;
+$text-color: #333;
+$bg-color: #f5f7fa;
+
+// Градієнти
+$primary-gradient: linear-gradient(135deg, $primary-color 0%, #2980b9 100%);
+$secondary-gradient: linear-gradient(135deg, $secondary-color 0%, #27ae60 100%);
+
+// Типографія
+$font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+$font-secondary: Georgia, 'Times New Roman', Times, serif;
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+
+// Відступи
+$spacing-small: 0.5rem;
+$spacing-medium: 1rem;
+$spacing-large: 2rem;
+$spacing-xlarge: 3rem;
+
+// Розміри
+$border-radius: 8px;
+$border-radius-small: 4px;
+$border-radius-large: 12px;
+
+// Тіні
+$box-shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+$box-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.15);
+$box-shadow-large: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+// Перехід
+$transition-speed: 0.3s;
+$transition-ease: ease-in-out;

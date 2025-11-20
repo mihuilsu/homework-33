@@ -1,0 +1,79 @@
+@use 'sass:color';
+@use 'variables' as *;
+
+// Міксін для flexbox центрування
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Міксін для переходів
+@mixin transition($property: all, $duration: $transition-speed, $timing: $transition-ease) {
+  transition: $property $duration $timing;
+}
+
+// Міксін для тіней
+@mixin box-shadow($shadow: $box-shadow-medium) {
+  box-shadow: $shadow;
+}
+
+// Міксін для border-radius
+@mixin border-radius($radius: $border-radius) {
+  border-radius: $radius;
+}
+
+// Міксін для градієнтів
+@mixin gradient-bg($start-color, $end-color, $direction: 135deg) {
+  background: linear-gradient($direction, $start-color 0%, $end-color 100%);
+}
+
+// Міксін для медіа-запитів
+@mixin responsive($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 576px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == tablet {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  @else if $breakpoint == desktop {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+}
+
+// Міксін для обрізки тексту
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Міксін для кнопок (оновлений з color.adjust)
+@mixin button($bg-color, $text-color: white) {
+  display: inline-block;
+  padding: $spacing-small $spacing-medium;
+  background-color: $bg-color;
+  color: $text-color;
+  text-decoration: none;
+  @include border-radius($border-radius-small);
+  @include transition(all);
+  cursor: pointer;
+  border: none;
+  font-size: $font-size-base;
+
+  &:hover {
+    background-color: color.adjust($bg-color, $lightness: -10%);
+    transform: translateY(-2px);
+    @include box-shadow($box-shadow-large);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
