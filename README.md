@@ -99,13 +99,13 @@ npm run dev
 npm run build
 ```
 
-Результат буде в папці `dist/`:
+Результат буде в папці `docs/`:
 - `main.css` - розширена версія
 - `main.min.css` - мінімізована версія
 
 ### Очищення
 
-Видаляє папку dist:
+Видаляє папку docs:
 
 ```bash
 npm run clean
@@ -126,7 +126,7 @@ gulp-automation-project/
 │   │   └── main.js          # Головний JS файл
 │   └── index.html           # HTML сторінка
 │
-├── dist/                    # Згенеровані файли (після збірки)
+├── docs/                    # Згенеровані файли (після збірки)
 │   ├── css/
 │   │   ├── main.css
 │   │   └── main.min.css
@@ -150,11 +150,11 @@ gulp-automation-project/
 ### Основні завдання (tasks)
 
 #### `clean`
-Видаляє папку dist перед новою збіркою:
+Видаляє папку docs перед новою збіркою:
 
 ```javascript
 function clean() {
-  return del(['dist']);
+  return del(['docs']);
 }
 ```
 
@@ -169,10 +169,10 @@ function clean() {
 7. Оновлює браузер
 
 #### `html`
-Копіює HTML файли з `src/` до `dist/`
+Копіює HTML файли з `src/` до `docs/`
 
 #### `scripts`
-Копіює JavaScript файли з `src/js/` до `dist/js/`
+Копіює JavaScript файли з `src/js/` до `docs/js/`
 
 #### `serve`
 Запускає локальний сервер та відстежує зміни:
